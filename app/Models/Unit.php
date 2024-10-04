@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Enums\MeasurementType;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -30,16 +29,6 @@ class Unit extends Model
     }
 
     /**
-     * The child units of the unit
-     *
-     * @return HasMany<Unit>
-     */
-    public function childUnits(): HasMany
-    {
-        return $this->hasMany(Unit::class, 'base_unit_id');
-    }
-
-    /**
      * The ingredients that use the unit
      *
      * @return HasMany<Ingredient>
@@ -47,17 +36,5 @@ class Unit extends Model
     public function ingredients(): HasMany
     {
         return $this->hasMany(Ingredient::class);
-    }
-
-    /**
-     * Check if the unit is a base unit
-     *
-     * @return Attribute<bool, void>
-     */
-    public function isBaseUnit(): Attribute
-    {
-        return Attribute::make(
-            get: fn() => $this->base_unit_id === null,
-        );
     }
 }
