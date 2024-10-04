@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\ResponseFromApiResource;
 
@@ -17,9 +18,9 @@ class ProductController extends Controller
         description: 'Successfully retrieved products.',
         collection: true,
         with: ['ingredients'],
-        paginate: true
+        paginate: 15
     )]
-    public function __invoke()
+    public function __invoke(): AnonymousResourceCollection
     {
         return ProductResource::collection(Product::with('ingredients')->paginate());
     }

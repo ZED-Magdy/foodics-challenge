@@ -22,7 +22,6 @@ class UnitResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'conversion_factor_to_base' => $this->conversion_factor_to_base,
-            'measurement_type' => $this->measurement_type,
             'base_unit' => new self($this->whenLoaded('baseUnit')),
         ];
     }
