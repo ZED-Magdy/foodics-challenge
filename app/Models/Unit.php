@@ -20,15 +20,6 @@ class Unit extends Model
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'measurement_type' => MeasurementType::class,
-    ];
-
-    /**
      * The base unit of the unit
      *
      * @return BelongsTo<Unit, Unit>
