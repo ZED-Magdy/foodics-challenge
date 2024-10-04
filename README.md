@@ -20,6 +20,7 @@ cp .env.example .env
 ./vendor/bin/sail artisan horizon
 ./vendor/bin/sail artisan scribe:gen
 ./vendor/bin/sail artisan test
+./vendor/bin/phpstan analyse
 ```
 
 - Visit `http://localhost:8000/docs` or `http://localhost:8000/swagger` in your browser
